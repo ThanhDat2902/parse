@@ -64,12 +64,17 @@ app.get('/push', function (req, res) {
     // With promises
     Parse.Push.send({
         where: {
-            "deviceType": { "$in": ["ios", "android"] }
+            "deviceType": {
+                "$in": [
+                  "ios",
+                  "android"
+                ]
+            }
         },
-        data: {
-            "title": "Push Test",
-            "alert": "This is awesome."
-        }
+            data: {
+                "title": "The Shining",
+                "alert": "All work and no play makes Jack a dull boy."
+            }
             }, { useMasterKey: true })
     .then(function() {
         // Push sent!
