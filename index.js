@@ -78,7 +78,7 @@ app.get('/push', function (req, res) {
             }, { useMasterKey: true })
     .then(function() {
         // Push sent!
-        res.status(200).send('push send');
+        res.success();
     }, function(error) {
         // There was a problem :(
         res.status(200).send(error);
