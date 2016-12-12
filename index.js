@@ -76,7 +76,7 @@ app.get('/push', function (req, res) {
         res.status(200).send('push send');
     }, function(error) {
         // There was a problem :(
-        res.status(200).send('push error');
+        res.status(200).send(error);
     });
 });
 
