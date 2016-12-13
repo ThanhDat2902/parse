@@ -12,11 +12,12 @@ var path = require('path');
 //}
 
 var api = new ParseServer({
-    databaseURI: 'mongodb://user:key@ds053186.mlab.com:53186/heroku_lkggr5wx',
-  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'myAppId',
-  masterKey: process.env.MASTER_KEY || 'key', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'https://safe-basin-38488.herokuapp.com/parse',  // Don't forget to change to https if needed
+  databaseURI: 'mongodb://user:key@ds053186.mlab.com:53186/heroku_lkggr5wx',
+  cloud: __dirname + '/cloud/main.js',
+  verbose: true,
+  appId: 'myAppId',
+  masterKey: 'key', //Add your master key here. Keep it secret!
+  serverURL: 'https://safe-basin-38488.herokuapp.com/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
   }
@@ -62,20 +63,17 @@ app.get('/test', function(req, res) {
 
 app.get('/push', function (req, res) {
     // With promises
-    Parse.Push.send({
+    ParseServer.Push.send({
         where: {
             "deviceType": {
-                "$in": [
-                  "ios",
-                  "android"
-                ]
+                "$in": ["ios","android"]
             }
         },
-            data: {
-                "title": "The Shining",
-                "alert": "All work and no play makes Jack a dull boy."
-            }
-            }, { useMasterKey: true })
+        data: {
+            "title": "The Shining",
+            "alert": "All work and no play makes Jack a dull boy."
+        }
+    }, { useMasterKey: true })
     .then(function() {
         // Push sent!
         res.success();
