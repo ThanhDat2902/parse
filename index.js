@@ -61,28 +61,6 @@ app.get('/test', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/test.html'));
 });
 
-app.get('/push', function (req, res) {
-    // With promises
-    ParseServer.Push.send({
-        where: {
-            "deviceType": {
-                "$in": ["ios","android"]
-            }
-        },
-        data: {
-            "title": "The Shining",
-            "alert": "All work and no play makes Jack a dull boy."
-        }
-    }, { useMasterKey: true })
-    .then(function() {
-        // Push sent!
-        res.success();
-    }, function(error) {
-        // There was a problem :(
-        res.status(200).send(error);
-    });
-});
-
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
