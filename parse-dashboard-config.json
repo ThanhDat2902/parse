@@ -1,10 +1,16 @@
 {
   "apps": [
     {
-      "serverURL": "https://safe-basin-38488.herokuapp.com/parse",
-      "appId": "myAppId",
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "myAppId1",
       "masterKey": "key",
       "appName": "MyApp"
+    },
+    {
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "myAppId2",
+      "masterKey": "key",
+      "appName": "MyApp2"
     }
   ]
 }
