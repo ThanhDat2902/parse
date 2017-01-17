@@ -13,7 +13,7 @@ var path = require('path');
 
 
 var api1 = new ParseServer({
-    databaseURI: 'mongodb://user:key@ds053186.mlab.com:53186/heroku_lkggr5wx',
+    databaseURI: 'mongodb://test:test@ds051665.mlab.com:51665/parse1',
     //cloud: __dirname + '/cloud/main.js',
     verbose: true,
     appId: 'myAppId1',
@@ -31,7 +31,7 @@ var api1 = new ParseServer({
   }
 });
 var api2 = new ParseServer({
-    databaseURI: 'mongodb://user:key@ds053186.mlab.com:53186/heroku_lkggr5wx',
+    databaseURI: 'mongodb://test:test@ds053196.mlab.com:53196/parse2',
     //cloud: __dirname + '/cloud/main.js',
     verbose: true,
     appId: 'myAppId2',
