@@ -18,8 +18,8 @@ var api1 = new ParseServer({
     verbose: true,
     appId: 'myAppId1',
     masterKey: 'key', //Add your master key here. Keep it secret!
-    //serverURL: 'https://safe-basin-38488.herokuapp.com/parse',
-    serverURL: 'http://localhost:1337/parse',
+    serverURL: 'https://safe-basin-38488.herokuapp.com/parse',
+    //serverURL: 'http://localhost:1337/parse',
     liveQuery: {
         classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
     }
@@ -36,11 +36,11 @@ var api2 = new ParseServer({
     verbose: true,
     appId: 'myAppId2',
     masterKey: 'key', //Add your master key here. Keep it secret!
-    serverURL: 'http://localhost:1337/parse',
+    serverURL: 'https://safe-basin-38488.herokuapp.com/parse',
     liveQuery: {
         classNames: ["Posts", "Comments"]
-    }
-  , push: {
+    },
+    push: {
       android: {
           senderId: '1077532576696',
           apiKey: 'AIzaSyD_6h7I5uP3FqU_iOuURjCOJl2lLMZwM2c'
