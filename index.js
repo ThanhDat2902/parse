@@ -69,14 +69,13 @@ app.get('/', function(req, res) {
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
 app.get('/new', function (req, res) {
-    console.log(req.param.appId);
     res.status(200).send('New App added');
     var newApi = new ParseServer({
         databaseURI: 'mongodb://test:test@ds053196.mlab.com:53196/parse2',
         //cloud: __dirname + '/cloud/main.js',
         verbose: true,
-        appId: req.param.appId,
-        masterKey: req.param.masterKey, //Add your master key here. Keep it secret!
+        appId: req.query.appId,
+        masterKey: req.query.masterKey, //Add your master key here. Keep it secret!
         serverURL: 'https://safe-basin-38488.herokuapp.com/parse',
         liveQuery: {
             classNames: ["Posts", "Comments"]
