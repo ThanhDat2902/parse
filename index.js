@@ -59,7 +59,7 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 // Serve the Parse API on the /parse URL prefix
 var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api1);
-app.use(mountPath,api2)
+app.use(mountPath, api2);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
@@ -68,8 +68,26 @@ app.get('/', function(req, res) {
 
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
-app.get('/test', function(req, res) {
-  res.sendFile(path.join(__dirname, '/public/test.html'));
+app.get('/new', function(req, res) {
+    res.status(200).send('New App added');
+    var newApi = new ParseServer({
+        databaseURI: 'mongodb://test:test@ds053196.mlab.com:53196/parse2',
+        //cloud: __dirname + '/cloud/main.js',
+        verbose: true,
+        appId: req.param.appId,
+        masterKey: req.param.masterKey, //Add your master key here. Keep it secret!
+        serverURL: 'https://safe-basin-38488.herokuapp.com/parse',
+        liveQuery: {
+            classNames: ["Posts", "Comments"]
+        },
+        push: {
+            android: {
+                senderId: '1077532576696',
+                apiKey: 'AIzaSyD_6h7I5uP3FqU_iOuURjCOJl2lLMZwM2c'
+            }
+        }
+    });
+    app.use(mountPath, newApi);
 });
 
 var port = process.env.PORT || 1337;
