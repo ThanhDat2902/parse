@@ -77,9 +77,6 @@ app.get('/new', function (req, res) {
         appId: req.query.appId,
         masterKey: req.query.masterKey, //Add your master key here. Keep it secret!
         serverURL: 'https://safe-basin-38488.herokuapp.com/parse',
-        liveQuery: {
-            classNames: ["Posts", "Comments"]
-        },
         push: {
             android: {
                 senderId: '1077532576696',
