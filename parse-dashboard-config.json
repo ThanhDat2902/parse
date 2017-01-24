@@ -11,6 +11,12 @@
       "appId": "myAppId2",
       "masterKey": "key",
       "appName": "MyApp2"
+    },
+     {
+      "serverURL": "https://safe-basin-38488.herokuapp.com/parse/",
+      "appId": "myNewApp",
+      "masterKey": "key",
+      "appName": "NewApp"
     }
   ]
 }

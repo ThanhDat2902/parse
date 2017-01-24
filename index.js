@@ -68,7 +68,8 @@ app.get('/', function(req, res) {
 
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
-app.get('/new', function(req, res) {
+app.get('/new', function (req, res) {
+    console.log(req.param.appId);
     res.status(200).send('New App added');
     var newApi = new ParseServer({
         databaseURI: 'mongodb://test:test@ds053196.mlab.com:53196/parse2',
